@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from "styled-components/native";
-import {Ionicons} from '@expo/vector-icons';
 import {Card} from "react-native-paper";
-import {View, Text} from "react-native";
+import {View, Text, Image} from "react-native";
 import {SvgXml} from "react-native-svg";
 import star from '../../../../assets/star'
+import openSvg from "../../../../assets/openSvg";
+import {SpacerComponent} from "./spacer/spacer.component";
 
 const Title = styled.Text`
   font-family: ${(props) => props.theme.fonts.heading};
@@ -27,19 +28,27 @@ const Address = styled(Text)`
 const Rating = styled(View)`
   flex-direction: row;
   padding-left: ${props => props.theme.space[1]};
-
+`
+const Section = styled(View)`
+  flex-direction: row;
+  justify-content: space-between;
+`
+const SectionEnd = styled(View)`
+    flex-direction: row;
+    justify-content: end;
+ 
 `
 export const RestaurantInfo = ({restaurant = {}}) => {
     const {
         name = 'MARKET',
-        icon = <Ionicons name="cafe" size={24} color="black"/>,
+        icon =  "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
         photos = [
             'https://lh3.googleusercontent.com/p/AF1QipO9uroF5Es07DqrbM1wiAWgU3O26QboCdNvSVL_=s1360-w1360-h1020'],
         address = 'W DOHA',
         openingHours = '07:00 - 23:00',
         isOpenNow = true,
         rating = '5',
-        isCloseTemporarily = false,
+        isCloseTemporarily = true,
     } = restaurant
 
     const ratingArray = Array.from(new Array(Math.floor(rating)))
@@ -50,11 +59,28 @@ export const RestaurantInfo = ({restaurant = {}}) => {
                     <RestaurantCardCover key={name} source={{uri: photos[0]}}/>
                     <Info>
                         <Title>{name}</Title>
+                        <Section>
                         <Rating>
                             {ratingArray.map(() => {
                                 return <SvgXml xml={star} width='20' height='20'/>
                             })}
                         </Rating>
+                            <SectionEnd>
+                            <SpacerComponent variant={'left.small'}/>
+                            {
+                                isCloseTemporarily && (
+                                    <Text
+                                        variant='label'
+                                        style={{color:'red'}}>
+                                        CLOSED TEMPORARILY
+                                    </Text>
+                                )
+                            }
+                                <SpacerComponent variant={'left.medium'}/>
+                                {isOpenNow && <SvgXml xml={openSvg} width='20' height='20'/>}
+                            </SectionEnd>
+                            <Image style={{width:20,height:20}} source={{uri:icon}}/>
+                        </Section>
                         <Address>{address}</Address>
                     </Info>
                 </Card.Content>
