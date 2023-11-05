@@ -48,7 +48,7 @@ export const RestaurantInfo = ({restaurant = {}}) => {
         openingHours = '07:00 - 23:00',
         isOpenNow = true,
         rating = '5',
-        isCloseTemporarily = true,
+        isCloseTemporarily = false,
     } = restaurant
 
     const ratingArray = Array.from(new Array(Math.floor(rating)))
@@ -66,20 +66,23 @@ export const RestaurantInfo = ({restaurant = {}}) => {
                             })}
                         </Rating>
                             <SectionEnd>
-                            <SpacerComponent variant={'left.small'}/>
+                            <SpacerComponent position='top' size='large'>
                             {
                                 isCloseTemporarily && (
                                     <Text
                                         variant='label'
-                                        style={{color:'red'}}>
+                                        style={{color:'red',marginRight:10}}>
                                         CLOSED TEMPORARILY
                                     </Text>
                                 )
                             }
-                                <SpacerComponent variant={'left.medium'}/>
-                                {isOpenNow && <SvgXml xml={openSvg} width='20' height='20'/>}
-                            </SectionEnd>
+                            </SpacerComponent>
+                                <SpacerComponent position='left' size='medium'>
+                                {isOpenNow && <SvgXml style={{marginRight:10}} xml={openSvg} width='20' height='20'/>}
+                                </SpacerComponent>
+
                             <Image style={{width:20,height:20}} source={{uri:icon}}/>
+                            </SectionEnd>
                         </Section>
                         <Address>{address}</Address>
                     </Info>
