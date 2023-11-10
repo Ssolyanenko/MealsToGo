@@ -1,43 +1,22 @@
 import React from 'react';
-import styled from "styled-components/native";
 import {Card} from "react-native-paper";
-import {View, Text, Image} from "react-native";
+import {Text, Image} from "react-native";
 import {SvgXml} from "react-native-svg";
 import star from '../../../../assets/star'
 import openSvg from "../../../../assets/openSvg";
 import {SpacerComponent} from "./spacer/spacer.component";
+import {
+    Address,
+    Info,
+    Rating,
+    RestaurantCard,
+    RestaurantCardCover,
+    Section,
+    SectionEnd,
+    Title,
+   } from "./restaurant-info-card.styles";
 
-const Title = styled.Text`
-  font-family: ${(props) => props.theme.fonts.heading};
-  padding: ${props => props.theme.space[2]};
-  font-size: ${props => props.theme.fontSizes.body};
-  color: ${props => props.theme.colors.ui.primary};
-`
-const RestaurantCard = styled(Card)`
-  background-color: ${props => props.theme.colors.ui.tertiary};`
-const RestaurantCardCover = styled(Card.Cover)`
-`
-const Info = styled(View)`
-  padding: ${props => props.theme.space[2]};
-`
-const Address = styled(Text)`
-  font-family: ${(props) => props.theme.fonts.heading};
-  padding: ${props => props.theme.space[2]};
-  font-size: ${props => props.theme.fontSizes.caption};
-`
-const Rating = styled(View)`
-  flex-direction: row;
-  padding-left: ${props => props.theme.space[1]};
-`
-const Section = styled(View)`
-  flex-direction: row;
-  justify-content: space-between;
-`
-const SectionEnd = styled(View)`
-    flex-direction: row;
-    justify-content: end;
- 
-`
+
 export const RestaurantInfo = ({restaurant = {}}) => {
     const {
         name = 'MARKET',
