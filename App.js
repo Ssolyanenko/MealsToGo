@@ -49,7 +49,7 @@ const MapScreen = () => <SafeArea> <Text>MapScreen</Text> </SafeArea>
                        tabBarInactiveTintColor: 'gray',
                    })}
                    >
-                       <Tab.Screen name="RestaurantsScreen" component={RestaurantsScreen} />
+                       <Tab.Screen name="RestaurantsScreen"  component={RestaurantsScreen} />
                        <Tab.Screen name="Map" component={MapScreen} />
                        <Tab.Screen name="Settings" component={SettingsScreen} />
                    </Tab.Navigator>
