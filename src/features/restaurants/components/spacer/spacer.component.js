@@ -18,7 +18,6 @@ const getVariant = (position,size,theme) => {
     const property = positionVariant[position]
     const sizeIndex = sizeVariant[size]
     const value = theme.space[sizeIndex]
-    console.log(value,property)
     return `${property}:${value}`
 }
 export const SpacerComponent = styled.View`

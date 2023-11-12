@@ -38,7 +38,6 @@ const MapScreen = () =>{
 
 const screenOption =({route}) =>{
     const iconName = TAB_ICON[route.name]
-    console.log(iconName)
     return {
         tabBarIcon: ({size,color}) => (
             <Ionicons name={iconName} size={size} color={color} />

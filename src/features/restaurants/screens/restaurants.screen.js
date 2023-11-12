@@ -23,7 +23,6 @@ export const RestaurantsScreen = () => {
     const [searchQuery, setSearchQuery] = React.useState('');
     const {restaurants, isLoading, isError} = useContext(RestaurantsContext)
 
-
     const onChangeSearch = query => setSearchQuery(query);
     return (
         <SafeArea>
@@ -33,7 +32,6 @@ export const RestaurantsScreen = () => {
             <RestaurantList
                 data={restaurants}
                 renderItem={({item}) =>{
-                    console.log(item)
                   return (
                     <RestaurantInfo restaurant={item}/>
                   )

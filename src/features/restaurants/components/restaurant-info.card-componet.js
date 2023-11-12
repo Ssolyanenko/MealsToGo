@@ -19,7 +19,7 @@ import {
 
 export const RestaurantInfo = ({restaurant = {}}) => {
     const {
-        name = 'MARKET',
+        name = restaurant.name,
         icon =  "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
         photos = [
             'https://lh3.googleusercontent.com/p/AF1QipO9uroF5Es07DqrbM1wiAWgU3O26QboCdNvSVL_=s1360-w1360-h1020'],
@@ -35,7 +35,7 @@ export const RestaurantInfo = ({restaurant = {}}) => {
         <>
             <RestaurantCard elevation={5}>
                 <Card.Content>
-                    <RestaurantCardCover key={name} source={{uri: photos[0]}}/>
+                    <RestaurantCardCover key={name} source={{uri: restaurant.photos[0]}}/>
                     <Info>
                         <Title>{name}</Title>
                         <Section>
