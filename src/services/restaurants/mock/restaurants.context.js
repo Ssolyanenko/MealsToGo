@@ -5,16 +5,23 @@ export const RestaurantsContext = createContext()
 export const RestaurantsContextProvider = ({children}) => {
     const [restaurants, setRestaurants] = useState([])
     const [isLoading, setIsLoading] = useState(false)
-    const [isError, setisError] = useState(null)
+    const [isError, setIsError] = useState(null)
 
-    async function retrieveRestaurants() {
-        setIsLoading(true)
+    const retrieveRestaurants = () => {
+        setIsLoading(true);
         setTimeout(() => {
-            restaurantsRequest().then(restaurantsTransform).then(res => setRestaurants(res)).catch(error => setisError(error))
-        }, 2000)
-        setIsLoading(false)
-    }
-
+            restaurantsRequest()
+                .then(restaurantsTransform)
+                .then((results) => {
+                    setIsLoading(false);
+                    setRestaurants(results);
+                })
+                .catch((err) => {
+                    setIsLoading(false);
+                    setIsError(err);
+                });
+        }, 2000);
+    };
     useEffect(() => {
         retrieveRestaurants()
     }, []);
