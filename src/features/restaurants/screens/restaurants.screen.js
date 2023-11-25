@@ -5,15 +5,9 @@ import {RestaurantInfo} from "../components/restaurant-info.card-componet";
 import styled from "styled-components/native";
 import {SafeArea} from "../components/utility/safe-area.component";
 import {RestaurantsContext} from "../../../services/restaurants/mock/restaurants.context";
+import {Search} from "../components/search.component";
 
 
-const SearchContainer = styled(View)`
-  padding: 10px
-`
-
-const Search = styled(Searchbar)`
-  background-color: ${props => props.theme.colors.bg.secondary};
-`
 const RestaurantList = styled(FlatList).attrs({
     contentContainerStyle: {
         padding: 16
@@ -28,10 +22,8 @@ const LoadingContainer = styled(View)`
   left:50%;
 `
 export const RestaurantsScreen = () => {
-    const [searchQuery, setSearchQuery] = React.useState('');
     const {restaurants, isLoading, isError} = useContext(RestaurantsContext)
 
-    const onChangeSearch = query => setSearchQuery(query);
     return (
         <SafeArea>
             {isLoading && (
@@ -44,9 +36,7 @@ export const RestaurantsScreen = () => {
                 />
                 </LoadingContainer>
             )}
-            <SearchContainer>
-                <Search style={{backgroundColor:'#fff'}} onChange={onChangeSearch}/>
-            </SearchContainer>
+          <Search/>
             <RestaurantList
                 data={restaurants}
                 renderItem={({item}) =>{
