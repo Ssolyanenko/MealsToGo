@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {FlatList, Pressable, View} from "react-native";
+import {FlatList, TouchableOpacity, View} from "react-native";
 import {ActivityIndicator} from "react-native-paper";
 import {RestaurantInfo} from "../components/restaurant-info.card-componet";
 import styled from "styled-components/native";
@@ -41,9 +41,11 @@ export const RestaurantsScreen = ({navigation}) => {
                 data={restaurants}
                 renderItem={({item}) =>{
                   return (
-                      <Pressable onPress={()=>navigation.navigate('RestaurantDetail')}>
+                      <TouchableOpacity onPress={()=>navigation.navigate('RestaurantDetail', {
+                          restaurant: item
+                      })}>
                       <RestaurantInfo restaurant={item}/>
-                      </Pressable>
+                      </TouchableOpacity>
 
                   )
                 }}
