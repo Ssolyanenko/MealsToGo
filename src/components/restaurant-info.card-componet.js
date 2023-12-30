@@ -2,8 +2,8 @@ import React from 'react';
 import {Card} from "react-native-paper";
 import {Text, Image} from "react-native";
 import {SvgXml} from "react-native-svg";
-import star from '../../../../assets/star'
-import openSvg from "../../../../assets/openSvg";
+import star from '../../assets/star'
+import openSvg from "../../assets/openSvg";
 import {SpacerComponent} from "./spacer/spacer.component";
 import {
     Address,

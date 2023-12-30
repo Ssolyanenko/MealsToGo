@@ -1,5 +1,5 @@
-import {SafeArea} from "../components/utility/safe-area.component";
-import {RestaurantInfo} from "../components/restaurant-info.card-componet";
+import {SafeArea} from "../../../components/utility/safe-area.component";
+import {RestaurantInfo} from "../../../components/restaurant-info.card-componet";
 import {useState} from "react";
 import { List } from "react-native-paper";
 import {ScrollView} from "react-native";

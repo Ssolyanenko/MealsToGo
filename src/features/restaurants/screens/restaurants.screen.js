@@ -1,11 +1,11 @@
 import React, {useContext} from "react";
 import {FlatList, TouchableOpacity, View} from "react-native";
 import {ActivityIndicator} from "react-native-paper";
-import {RestaurantInfo} from "../components/restaurant-info.card-componet";
+import {RestaurantInfo} from "../../../components/restaurant-info.card-componet";
 import styled from "styled-components/native";
-import {SafeArea} from "../components/utility/safe-area.component";
+import {SafeArea} from "../../../components/utility/safe-area.component";
 import {RestaurantsContext} from "../../../services/restaurants/mock/restaurants.context";
-import {Search} from "../components/search.component";
+import {Search} from "../../../components/search.component";
 
 
 const RestaurantList = styled(FlatList).attrs({
