@@ -5,14 +5,14 @@ import {View} from "react-native";
 import {LocationContext} from "../services/location/location.context";
 
 const SearchContainer = styled(View)`
-  padding: 10px
+    padding: 10px
 `
 
 const SearchBarStyled = styled(Searchbar)`
-  background-color: ${props => props.theme.colors.bg.secondary};
+    background-color: ${props => props.theme.colors.bg.secondary};
 `
 
-export const Search = () => {
+export const Search = ({onFavoriteToggle, isFavoriteToggled}) => {
     const {keyword, search} = useContext(LocationContext)
     const [searchKeyword, setSearchKeyword] = useState(keyword)
     useEffect(() => {
@@ -21,6 +21,8 @@ export const Search = () => {
     return (
         <SearchContainer>
             <SearchBarStyled
+                icon={isFavoriteToggled ? "heart" : "heart-outline"}
+                onIconPress={onFavoriteToggle}
                 placeholder='Search for a loaction'
                 value={searchKeyword}
                 onSubmitEditing={() => {
