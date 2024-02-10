@@ -12,7 +12,7 @@ export const AccountScreen = ({navigation}) =>{
                >Login</AuthButton>
                 <View style={{marginTop:15}}>
                 <AuthButton
-                    icon='lock-open-outline'
+                    icon='account-plus-outline'
                     mode='contained'
                     onPress={()=>navigation.navigate('Register')}
                 >Registration</AuthButton>

@@ -11,13 +11,8 @@ import {LocationContextProvider} from "./src/services/location/location.context"
 import {FavouritesContextProvider} from "./src/services/favourites/favourites.context";
 import {RestaurantsContextProvider} from "./src/services/restaurants/mock/restaurants.context";
 import {Navigation} from "./src/infrastructure/navigation";
-import firebase from "firebase/compat";
-import {app} from "./firebaseConfig";
 import {AuthContextProvider} from "./src/services/auth/auth.context";
 
-if(!firebase.app.length){
-    firebase.initializeApp(app)
-}
 
 export default function App() {
     const [oswaldLoaded] = useOswald({

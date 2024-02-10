@@ -1,5 +1,6 @@
 import {createContext, useState} from "react";
 import {loginRequest} from "./auth.service";
+import {FIREBASE_AUTH} from "../../../firebaseConfig";
 
 export const AuthContext = createContext()
 export const AuthContextProvider = ({children}) => {
@@ -8,16 +9,13 @@ export const AuthContextProvider = ({children}) => {
     const [error, setError] = useState(null)
 
     const onLogin = async (email, password) => {
-        console.log(email,password)
         setIsLoading(true)
-        await loginRequest(email, password).then((u) => {
+        await loginRequest(FIREBASE_AUTH,email, password).then((u) => {
             setUser(u)
             setIsLoading(false)
-            console.log(u)
         }).catch((error) => {
             setIsLoading(false)
-            console.log(error)
-            setError(error)
+            setError(error.message)
         })
     }
     return (
