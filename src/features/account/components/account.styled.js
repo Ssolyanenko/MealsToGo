@@ -40,3 +40,17 @@ export const AccountContainer = styled.View`
 export const AuthButton = styled(Button).attrs({
     buttonColor: colors.brand.primary,
 })`padding: ${(props)=>props.theme.space[2]}`
+
+export const Tittle = styled.Text`
+text-align: center;
+align-self: center;
+font-size: 25px;
+margin-bottom: 20px;
+`
+export const ErrorContainer = styled.View`
+max-width: 300px;
+align-items: center;
+align-self: center;
+margin-top: ${(props)=>props.theme.space[2]};
+margin-bottom: ${(props)=>props.theme.space[2]};    
+`

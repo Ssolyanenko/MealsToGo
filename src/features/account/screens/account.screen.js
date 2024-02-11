@@ -1,10 +1,12 @@
-import {AccountContainer, AccountCover, AccountStyled, AuthButton} from "../components/account.styled";
+import {AccountContainer, AccountCover, AccountStyled, AuthButton, Tittle} from "../components/account.styled";
 import {View} from "react-native";
+
 export const AccountScreen = ({navigation}) =>{
     return(
         <AccountStyled>
             <AccountCover/>
             <AccountContainer>
+                <Tittle>Meals To Go</Tittle>
                <AuthButton
                icon='lock-open-outline'
                mode='contained'

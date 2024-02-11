@@ -1,17 +1,25 @@
 import React, {useState, useContext} from "react";
 import {Text} from "../../../components/typography/text.component";
 import {AuthContext} from "../../../services/auth/auth.context";
-import {AccountContainer, AccountCover, AccountStyled, AuthButton} from "../components/account.styled";
-import {TextInput} from "react-native-paper";
+import {
+    AccountContainer,
+    AccountCover,
+    AccountStyled,
+    AuthButton,
+    ErrorContainer,
+    Tittle
+} from "../components/account.styled";
+import {ActivityIndicator, TextInput} from "react-native-paper";
 
-export const LoginScreen = () => {
+export const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const {onLogin, error} = useContext(AuthContext);
+    const {onLogin, error,isLoading} = useContext(AuthContext);
     return (
         <AccountStyled>
             <AccountCover/>
             <AccountContainer>
+                <Tittle>Meals To Go</Tittle>
                 <TextInput
                     label="E-mail"
                     value={email}
@@ -21,7 +29,6 @@ export const LoginScreen = () => {
                     onChangeText={(u) => setEmail(u)}
                     style={{width: 300, marginBottom: 20}}
                 />
-
                 <TextInput
                     label="Password"
                     value={password}
@@ -30,19 +37,26 @@ export const LoginScreen = () => {
                     autoCapitalize="none"
                     secure
                     onChangeText={(p) => setPassword(p)}
-                    style={{width: 300, marginBottom: 20}}
+                    style={{width: 300, marginBottom:10}}
                 />
                 {error && (
-                    <Text variant="error">{error}</Text>
+                    <ErrorContainer>
+                    <Text  variant="error">{error}</Text>
+                    </ErrorContainer>
                 )}
                 <AuthButton
                     icon="lock-open-outline"
                     mode="contained"
                     onPress={() => onLogin(email, password)}
-                >
-                    Login
-                </AuthButton>
+                    >{isLoading ? <ActivityIndicator size="small" animating={true} color='white'/> : <Text style={{color:'white'}}>Login</Text>}</AuthButton>
             </AccountContainer>
+            <AuthButton
+                mode="contained"
+                onPress={()=>navigation.goBack()}
+                style={{marginTop:20,width:'50%',alignSelf:'center',}}
+            >
+                Back
+            </AuthButton>
         </AccountStyled>
     );
 };
