@@ -1,10 +1,17 @@
-import {AccountContainer, AccountCover, AccountStyled, AuthButton, Tittle} from "../components/account.styled";
+import {AccountContainer, AccountCover, AccountStyled, AuthButton, Tittle,AnimationWrapper} from "../components/account.styled";
 import {View} from "react-native";
+import LottieView from 'lottie-react-native';
 
 export const AccountScreen = ({navigation}) =>{
     return(
         <AccountStyled>
             <AccountCover/>
+            <AnimationWrapper>
+            <LottieView
+                autoPlay
+                source={require('../../../../assets/watermelon.json')}
+            />
+            </AnimationWrapper>
             <AccountContainer>
                 <Tittle>Meals To Go</Tittle>
                <AuthButton
