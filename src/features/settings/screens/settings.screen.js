@@ -12,7 +12,7 @@ const SettingsItem = styled(List.Item)`
 const AvatarContainer = styled.View`
     align-items: center;
 `
-export const SettingsScreen = () => {
+export const SettingsScreen = ({navigation}) => {
     const {onLogOut,user} = useContext(AuthContext)
     return (
         <SafeArea>
