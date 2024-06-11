@@ -8,13 +8,10 @@ import {RestaurantsContext} from "../../../services/restaurants/mock/restaurants
 import {Search} from "../../../components/search.component";
 import {FavouritesBar} from "../../../components/favourites/favourites-bar.component";
 import {FavouritesContext} from "../../../services/favourites/favourites.context";
+import {RestaurantList} from "../../account/components/restourants-list.component";
 
 
-const RestaurantList = styled(FlatList).attrs({
-    contentContainerStyle: {
-        padding: 16
-    }
-})``
+
 const Loading = styled(ActivityIndicator)`
     margin-left: -25px;
 `
