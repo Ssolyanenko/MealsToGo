@@ -7,10 +7,12 @@ export const AccountScreen = ({navigation}) =>{
         <AccountStyled>
             <AccountCover/>
             <AnimationWrapper>
+
             <LottieView
                 autoPlay
                 source={require('../../../../assets/watermelon.json')}
             />
+
             </AnimationWrapper>
             <AccountContainer>
                 <Tittle>Meals To Go</Tittle>
