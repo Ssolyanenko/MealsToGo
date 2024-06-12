@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import {FlatList, TouchableOpacity, View} from "react-native";
+import { TouchableOpacity, View} from "react-native";
 import {ActivityIndicator} from "react-native-paper";
 import {RestaurantInfo} from "../../../components/restaurant-info.card-componet";
 import styled from "styled-components/native";
@@ -9,6 +9,7 @@ import {Search} from "../../../components/search.component";
 import {FavouritesBar} from "../../../components/favourites/favourites-bar.component";
 import {FavouritesContext} from "../../../services/favourites/favourites.context";
 import {RestaurantList} from "../../account/components/restourants-list.component";
+import {FadeInView} from "../../../components/animations/fade.animation";
 
 
 
@@ -39,6 +40,7 @@ export const RestaurantsScreen = ({navigation}) => {
             )}
             <Search isFavoriteToggled={isToggled} onFavoriteToggle={() => setIsToggled(!isToggled)}/>
             {isToggled && <FavouritesBar favorites={favourites} onNavigate={navigation}/>}
+            <FadeInView>
             <RestaurantList
                 data={restaurants}
                 renderItem={({item}) => {
@@ -54,6 +56,7 @@ export const RestaurantsScreen = ({navigation}) => {
                 keyExtractor={(item) => item.name}
 
             />
+            </FadeInView>
         </SafeArea>
     )
 }
